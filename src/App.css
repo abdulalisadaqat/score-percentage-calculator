@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: "poppins";
+	src: url("./assets/fonts/Poppins-VariableFont_wght.otf");
+}
+
+@font-face {
+	font-family: "sahel";
+	src: url("./assets/fonts/Sahel-VF.ttf");
+}
+
+body {
+	margin: 0;
+	font-family: "sahel";
+}
+
+table td,
+table th {
+	padding: 8px;
+	border: 2px solid lightblue;
+	text-align: center;
+}
+table tr td:nth-child(2),
+table tr td:nth-child(3) {
+	padding: 4px;
+	direction: ltr;
+}
