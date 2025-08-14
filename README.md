@@ -23,6 +23,7 @@ Users are able to:
 - Flexbox
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
+- [TailwindCSS](https://tailwindcss.com) - CSS framework
 
 ## Author
 
