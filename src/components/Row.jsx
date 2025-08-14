@@ -1,18 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const Row = ({ id, subjects, setSubjects }) => {
 	const [creditInputDisabled, setCreditInputDisabled] = useState(true);
-	const [totalScore, setTotalScore] = useState("");
+	const [totalScore, setTotalScore] = useState(0);
 	const handleInputChange = (id, field, value) => {
+		setSubjects((prev) =>
+			prev.map((subject) => {
+				if (subject.id === id) {
+					if (field === "score") {
+						return {
+							...subject,
+							score: Number(value),
+							total: Number(value) * (subject.credits || 0),
+						};
+					} else if (field === "credits") {
+						return {
+							...subject,
+							credits: Number(value),
+							total: Number(value) * (subject.score || 0),
+						};
+					}
+				}
+				return subject;
+			})
+		);
+	};
+
+	useEffect(() => {
 		subjects.map((subject) => {
-			if (subject.id == id) {
-				subject[field] = Number(value);
-				subject.total =
-					value * (field === "score" ? subject.credits : subject.score);
+			if (subject.id === id) {
 				setTotalScore(subject.total);
 			}
 		});
-		console.log(subjects);
-	};
+	}, [subjects]);
 
 	return (
 		<>
@@ -41,7 +60,7 @@ const Row = ({ id, subjects, setSubjects }) => {
 					/>
 				</td>
 				<td>
-					<span>{totalScore}</span>
+					<span>{totalScore || ""}</span>
 				</td>
 			</tr>
 		</>

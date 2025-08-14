@@ -2,15 +2,18 @@ import { useState } from "react";
 import Row from "./components/Row";
 import "./App.css";
 function App() {
-	const subjects = [
-		{ id: 1, score: "", credits: 1, total: "" },
-		{ id: 2, score: "", credits: 1, total: "" },
-		{ id: 3, score: "", credits: 1, total: "" },
-		{ id: 4, score: "", credits: 1, total: "" },
-		{ id: 5, score: "", credits: 1, total: "" },
-		{ id: 6, score: "", credits: 1, total: "" },
-		{ id: 7, score: "", credits: 1, total: "" },
-	];
+	const [subjects, setSubjects] = useState([
+		{ id: 1, score: 0, credits: 0, total: 0 },
+		{ id: 2, score: 0, credits: 0, total: 0 },
+		{ id: 3, score: 0, credits: 0, total: 0 },
+		{ id: 4, score: 0, credits: 0, total: 0 },
+		{ id: 5, score: 0, credits: 0, total: 0 },
+		{ id: 6, score: 0, credits: 0, total: 0 },
+		{ id: 7, score: 0, credits: 0, total: 0 },
+		{ id: 8, score: 0, credits: 0, total: 0 },
+		{ id: 9, score: 0, credits: 0, total: 0 },
+		{ id: 10, score: 0, credits: 0, total: 0 },
+	]);
 	const [result, setResult] = useState({
 		score: 0,
 		credits: 0,
@@ -31,12 +34,11 @@ function App() {
 			credits: totalCredits,
 			percentage: parseFloat(totalScore / totalCredits).toFixed(2),
 		});
-		console.log(result);
 	};
-	console.log(subjects);
+
 	return (
 		<>
-			<main className="bg-gray-200/60 w-screen h-screen flex items-center justify-center max-sm:px-3">
+			<main className="bg-gray-200/60 min-w-screen min-h-screen flex items-center justify-center py-8 max-sm:px-3">
 				<div className="bg-white shadow-lg rounded p-10 max-sm:p-4" dir="rtl">
 					<h1 className="text-center font-bold my-4 md:text-2xl">
 						محسابه فیصدی نمرات
@@ -51,13 +53,16 @@ function App() {
 							</tr>
 						</thead>
 						<tbody>
-							<Row id={1} subjects={subjects} />
-							<Row id={2} subjects={subjects} />
-							<Row id={3} subjects={subjects} />
-							<Row id={4} subjects={subjects} />
-							<Row id={5} subjects={subjects} />
-							<Row id={6} subjects={subjects} />
-							<Row id={7} subjects={subjects} />
+							<Row id={1} subjects={subjects} setSubjects={setSubjects} />
+							<Row id={2} subjects={subjects} setSubjects={setSubjects} />
+							<Row id={3} subjects={subjects} setSubjects={setSubjects} />
+							<Row id={4} subjects={subjects} setSubjects={setSubjects} />
+							<Row id={5} subjects={subjects} setSubjects={setSubjects} />
+							<Row id={6} subjects={subjects} setSubjects={setSubjects} />
+							<Row id={7} subjects={subjects} setSubjects={setSubjects} />
+							<Row id={8} subjects={subjects} setSubjects={setSubjects} />
+							<Row id={9} subjects={subjects} setSubjects={setSubjects} />
+							<Row id={10} subjects={subjects} setSubjects={setSubjects} />
 						</tbody>
 					</table>
 
