@@ -14,8 +14,7 @@ Users are able to:
 
 ### Links
 
-- Solution URL: (https://github.com/abdulalisadaqat/age-calculator-app)
-- Live Site URL: (https://product-list-with-cart-nu-five.vercel.app)
+- Live Site URL: (https://score-percentage-calculator.vercel.app/)
 
 ### Built with
 
